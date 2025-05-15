@@ -1,0 +1,65 @@
+<!-- catalogue.component.html -->
+<div class="catalogue-container">
+  <h2>Customize Your Program</h2>
+
+  <div class="selection-controls">
+    <div class="sets-reps-control">
+      <label>Sets: </label>
+      <input type="number" [(ngModel)]="newSeries" min="1" max="10">
+
+      <label>Reps: </label>
+      <input type="number" [(ngModel)]="newRepetitions" min="1" max="20">
+    </div>
+  </div>
+
+  <div *ngIf="isLoading" class="loading-message">
+    Loading exercises...
+  </div>
+
+  <div *ngIf="!isLoading" class="exercices-grid">
+    <div *ngFor="let exercice of exercices"
+         class="exercice-card"
+         [class.selected]="isSelected(exercice.id)"
+         (click)="toggleExerciceSelection(exercice)">
+
+      <img [src]="exercice.imageUrl" [alt]="exercice.name" *ngIf="exercice.imageUrl">
+      <div class="exercice-details">
+        <h3>{{exercice.name}}</h3>
+        <p><strong>Muscle Group:</strong> {{exercice.muscle_group}}</p>
+        <p><strong>Equipment:</strong> {{exercice.equipment}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="selectedExercices.length > 0" class="selected-exercices">
+    <h3>Selected Exercises:</h3>
+    <div *ngFor="let exercice of selectedExercices" class="selected-exercice">
+      <div class="exercice-info">
+        <img [src]="exercice.imageUrl" [alt]="exercice.name" *ngIf="exercice.imageUrl">
+        <span>{{exercice.name}}</span>
+      </div>
+      <div class="exercice-controls">
+        <label>Sets:</label>
+        <input type="number" [(ngModel)]="exercice.series" min="1" max="10"
+               (change)="updateSetsReps(exercice, 'series', exercice.series)">
+
+        <label>Reps:</label>
+        <input type="number" [(ngModel)]="exercice.repetitions" min="1" max="20"
+               (change)="updateSetsReps(exercice, 'repetitions', exercice.repetitions)">
+      </div>
+    </div>
+
+    <button class="save-btn" (click)="saveCustomProgram()">
+      {{programmeId ? 'Update Program' : 'Create Program'}}
+    </button>
+  </div>
+</div>
+
+<div *ngIf="!isLoading && exercices.length === 0" class="error-message">
+  No exercises found or failed to load.
+</div>
+
+<div *ngIf="!isLoading">
+  <p>Exercises count: {{exercices.length}}</p>
+  <p>Selected count: {{selectedExercices.length}}</p>
+</div>

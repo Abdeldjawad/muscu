@@ -1,0 +1,92 @@
+<div class="dashboard-container">
+  <!-- Weight Tracking -->
+  <div class="chart-card">
+    <h2>  Évolution de votre poids</h2>
+    <ngx-charts-line-chart
+      [scheme]="colorScheme"
+      [results]="[{ name: 'Poids', series: weightData }]"
+      [xAxis]="true"
+      [yAxis]="true"
+      [legend]="true"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxisLabel]="'Date'"
+      [yAxisLabel]="'Poids (kg)'"
+      [autoScale]="true">
+    </ngx-charts-line-chart>
+  </div>
+
+  <div class="chart-card">
+    <button (click)="toggleWeightForm()" class="add-data-button">
+      {{ showWeightForm ? 'Cancel' : 'Ajouter le poids' }}
+    </button>
+
+    <div *ngIf="showWeightForm" class="data-form">
+      <input type="number" [(ngModel)]="newWeight.value" placeholder="Weight (kg)" class="form-input">
+      <input type="date" [(ngModel)]="newWeight.date" class="form-input">
+      <button (click)="addWeight()" class="form-submit">Submit</button>
+    </div>
+  </div>
+
+  <!-- Calories Tracking -->
+  <div class="chart-card">
+    <h2> Calories consommées</h2>
+    <ngx-charts-line-chart
+      [scheme]="colorScheme"
+      [results]="[{ name: 'Calories', series: caloriesData }]"
+    [xAxis]="true"
+    [yAxis]="true"
+    [legend]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxisLabel]="'Date'"
+    [yAxisLabel]="'Calories'"
+    [yScaleMin]="0">
+    </ngx-charts-line-chart>
+  </div>
+
+  <div class="chart-card">
+    <button (click)="toggleCaloriesForm()" class="add-data-button">
+      {{ showCaloriesForm ? 'Cancel' : 'Ajouter les calories' }}
+    </button>
+
+    <div *ngIf="showCaloriesForm" class="data-form">
+      <input type="number" [(ngModel)]="newCalories.value" placeholder="Calories" class="form-input">
+      <input type="date" [(ngModel)]="newCalories.date" class="form-input">
+      <button (click)="addCalories()" class="form-submit">Submit</button>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Performance Tracking -->
+  <div class="chart-card">
+    <h2> Performance sportive</h2>
+    <ngx-charts-line-chart
+      [scheme]="colorScheme"
+      [results]="performanceData"
+      [xAxis]="true"
+      [yAxis]="true"
+      [legend]="true"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxisLabel]="'Date'"
+      [yAxisLabel]="'Performance'"
+      [yScaleMin]="0">
+    </ngx-charts-line-chart>
+  </div>
+</div>
+
+
+
+
+  <div class="example-data-section">
+    <button (click)="addExampleData()" class="example-button">
+      scriptSQL
+    </button>
+    <div *ngIf="exampleMessage" class="example-message">
+      {{ exampleMessage }}
+    </div>
+  </div>

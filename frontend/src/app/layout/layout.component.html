@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <span>🏋️ Muscu App</span>
+  <span class="spacer"></span>
+  @for (item of menuItems; track item.label) {
+    <button [routerLink]="[item?.route]" mat-button>{{ item?.label }}</button>
+  }
+  <button (click)="logout()" mat-button>Déconnexion</button>
+
+</mat-toolbar>
+
+<router-outlet></router-outlet>

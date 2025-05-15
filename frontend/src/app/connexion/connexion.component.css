@@ -1,0 +1,149 @@
+/* ✅ Mise en page responsive et suppression totale des marges */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Important pour gérer la taille */
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* ✅ Empêche le scroll */
+  height: 100%;
+  width: 100%;
+}
+
+/* ✅ Conteneur pleine page sans aucun espace */
+.connexion-container {
+  position: fixed; /* ✅ Fixe à la fenêtre */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), 
+              url('https://img.freepik.com/photos-gratuite/fitness-individuel-faisant-du-sport_23-2151764344.jpg');
+  background-size: cover; /* ✅ Assure que l’image couvre la fenêtre */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ✅ Effet de flou */
+.connexion-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  z-index: -1;
+}
+
+/* ✅ Formulaire centré et responsive */
+form {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ✅ Labels */
+label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* ✅ Champs de saisie */
+input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #007BFF;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: border 0.3s;
+}
+
+input:focus {
+  border-color: #ff7eb3;
+  box-shadow: 0 0 8px rgba(255, 126, 179, 0.8);
+}
+
+/* ✅ Boutons */
+button {
+  padding: 12px;
+  background-color: #ff7eb3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #ff4a92;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* ✅ Texte et lien */
+p {
+  margin-top: 15px;
+  text-align: center;
+  color: #fff;
+}
+
+button.link {
+  background: none;
+  border: none;
+  color: #ffdd57;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button.link:hover {
+  color: #fff;
+}
+
+/* ✅ Responsive pour petits écrans */
+@media (max-width: 500px) {
+  form {
+    padding: 20px;
+    width: 100%;
+    max-width: 90%;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

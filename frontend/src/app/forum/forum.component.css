@@ -1,0 +1,58 @@
+/* Style global pour centrer le contenu */
+h2 {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  textarea {
+    width: 100%;
+    max-width: 600px;
+    margin: 10px auto;
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  p {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #555;
+  }
+  
+  div {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  h4 {
+    color: #28a745;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }

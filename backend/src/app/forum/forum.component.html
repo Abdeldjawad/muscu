@@ -1,0 +1,13 @@
+<h2> Pose une question à l'IA Coach Muscu</h2>
+
+<textarea [(ngModel)]="question" rows="4" placeholder="Exemple : Comment prendre de la masse rapidement ?"></textarea>
+
+<br />
+<button (click)="poserQuestion()"> Envoyer</button>
+
+<p *ngIf="loading">⏳ L’IA réfléchit...</p>
+
+<div *ngIf="answer">
+  <h4>✅ Réponse :</h4>
+  <p>{{ answer }}</p>
+</div>

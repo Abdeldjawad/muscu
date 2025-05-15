@@ -1,0 +1,8 @@
+<h2>💬 Laissez votre message</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label for="message">Votre témoignage :</label>
+  <textarea id="message" rows="5" formControlName="message" placeholder="Exprimez votre expérience..."></textarea>
+  
+  <button type="submit" [disabled]="form.invalid">Envoyer</button>
+  <p *ngIf="message">{{ message }}</p>
+</form>

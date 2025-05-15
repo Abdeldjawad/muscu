@@ -1,0 +1,80 @@
+<div class="inscription-container">
+  <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
+    <h2>Créer un compte</h2>
+
+    <!-- Existing fields -->
+    <div class="input-group">
+      <label>Nom :</label>
+      <input type="text" formControlName="nom" placeholder="Entrez votre nom">
+      <small *ngIf="inscriptionForm.get('nom')?.invalid && inscriptionForm.get('nom')?.touched" class="error">
+        Nom requis
+      </small>
+    </div>
+
+    <div class="input-group">
+      <label>Email :</label>
+      <input type="email" formControlName="email" placeholder="Entrez votre email">
+      <small *ngIf="inscriptionForm.get('email')?.invalid && inscriptionForm.get('email')?.touched" class="error">
+        Email invalide
+      </small>
+    </div>
+
+    <div class="input-group">
+      <label>Mot de passe :</label>
+      <input type="password" formControlName="password" placeholder="Créez un mot de passe">
+      <small *ngIf="inscriptionForm.get('password')?.invalid && inscriptionForm.get('password')?.touched" class="error">
+        Minimum 6 caractères
+      </small>
+    </div>
+
+    <div class="input-group">
+      <label>Confirmer le mot de passe :</label>
+      <input type="password" formControlName="confirmPassword" placeholder="Confirmez votre mot de passe">
+      <small *ngIf="inscriptionForm.hasError('mismatch')" class="error">
+        Les mots de passe ne correspondent pas
+      </small>
+    </div>
+
+    <!-- Add the missing fields -->
+    <div class="input-group">
+      <label>Âge :</label>
+      <input type="number" formControlName="age" placeholder="Votre âge">
+      <small *ngIf="inscriptionForm.get('age')?.invalid && inscriptionForm.get('age')?.touched" class="error">
+        Âge minimum: 10 ans
+      </small>
+    </div>
+
+    <div class="input-group">
+      <label>Poids (kg) :</label>
+      <input type="number" formControlName="poids" placeholder="Votre poids">
+      <small *ngIf="inscriptionForm.get('poids')?.invalid && inscriptionForm.get('poids')?.touched" class="error">
+        Minimum 30 kg
+      </small>
+    </div>
+
+    <div class="input-group">
+      <label>Taille (cm) :</label>
+      <input type="number" formControlName="taille" placeholder="Votre taille">
+      <small *ngIf="inscriptionForm.get('taille')?.invalid && inscriptionForm.get('taille')?.touched" class="error">
+        Minimum 100 cm
+      </small>
+    </div>
+
+    <div class="input-group">
+      <label>Sexe :</label>
+      <select formControlName="sexe">
+        <option value="">Sélectionnez</option>
+        <option value="male">Homme</option>
+        <option value="female">Femme</option>
+      </select>
+      <small *ngIf="inscriptionForm.get('sexe')?.invalid && inscriptionForm.get('sexe')?.touched" class="error">
+        Sélection requise
+      </small>
+    </div>
+
+    <button type="submit" [disabled]="inscriptionForm.invalid">S'inscrire</button>
+
+    <p *ngIf="message" class="message">{{ message }}</p>
+    <p>Déjà un compte ? <button class="link" type="button" (click)="goToConnexion()">Se connecter</button></p>
+  </form>
+</div>

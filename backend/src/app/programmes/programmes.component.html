@@ -1,0 +1,41 @@
+<div class="programmes-container">
+  <div class="header-section">
+    <h2>Programmes Recommandés</h2>
+    <button class="create-new-btn" (click)="createNewProgram()">
+      + Créer un nouveau programme
+    </button>
+  </div>
+
+  <!-- Loading state -->
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="loading-spinner"></div>
+    <p>Loading your programs...</p>
+  </div>
+
+  <!-- Empty state -->
+  <div *ngIf="!isLoading && programmes.length === 0" class="empty-state">
+    <p>No programs available</p>
+  </div>
+
+  <!-- Program list -->
+  <div *ngIf="!isLoading && programmes.length > 0" class="programmes-list">
+    <div *ngFor="let programme of programmes" class="programme-card">
+      <h3>{{ programme.name }}</h3>
+
+      <div class="exercices-list">
+        <div *ngFor="let exercice of programme.exercices" class="exercice-item">
+          <span class="exercice-name">{{ exercice.exercice?.nom || 'Unknown' }}</span>
+          <span class="exercice-details">
+            {{ exercice.series }} séries x {{ exercice.repetitions }} répétitions
+          </span>
+        </div>
+      </div>
+
+      <div class="personalize-btn-container">
+        <button class="personalize-btn" (click)="navigateToCatalogue(programme.id)">
+          Personnaliser ce programme
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

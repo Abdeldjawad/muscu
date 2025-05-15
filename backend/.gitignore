@@ -1,0 +1,30 @@
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# 🛑 Empêcher les fichiers de build
+dist/
+build/
+.tmp/
+out/
+
+
+
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+
+# 🛑 Empêcher les fichiers Docker temporaires
+docker-compose.override.yml
+docker-compose.dev.yml
+
+# 🛑 Empêcher les dépendances Python (si besoin)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd

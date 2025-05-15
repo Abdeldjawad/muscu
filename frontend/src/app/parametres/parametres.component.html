@@ -1,0 +1,22 @@
+<h2>⚙️ Paramètres</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>Sexe :</label>
+  <select formControlName="sexe">
+    <option value="masculin">Masculin</option>
+    <option value="féminin">Féminin</option>
+  </select>
+
+  <label>Âge :</label>
+  <input type="number" formControlName="age">
+
+  <label>Taille (en cm) :</label>
+  <input type="number" formControlName="taille">
+  
+  <label>Poids (en kg) :</label>
+<input type="number" formControlName="poids">
+
+
+  <button type="submit" [disabled]="form.invalid">Enregistrer</button>
+
+  <p *ngIf="message">{{ message }}</p>
+</form>

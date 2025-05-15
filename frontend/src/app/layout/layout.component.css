@@ -1,0 +1,123 @@
+/* layout.component.css */
+
+/* Toolbar styling */
+mat-toolbar {
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 2;
+}
+
+/* App title styling */
+mat-toolbar span:first-child {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-right: 24px;
+}
+
+/* Spacer between title and menu items */
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Menu button styling */
+mat-toolbar button[mat-button] {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin: 0 8px;
+  padding: 0 12px;
+  height: 64px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Hover effect for buttons */
+mat-toolbar button[mat-button]:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Active route indicator */
+mat-toolbar button[mat-button].active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Underline animation for active/hover */
+mat-toolbar button[mat-button]:after {
+  content: '';
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+mat-toolbar button[mat-button]:hover:after,
+mat-toolbar button[mat-button].active:after {
+  width: 50%;
+}
+
+/* Logout button specific styling */
+mat-toolbar button[mat-button]:last-child {
+  margin-left: 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+mat-toolbar button[mat-button]:last-child:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Router outlet container */
+router-outlet {
+  padding: 24px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  mat-toolbar {
+    padding: 0 12px;
+  }
+
+  mat-toolbar button[mat-button] {
+    font-size: 0.8rem;
+    margin: 0 4px;
+    padding: 0 8px;
+  }
+
+  mat-toolbar span:first-child {
+    font-size: 1.2rem;
+    margin-right: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  mat-toolbar {
+    flex-direction: column;
+    height: auto;
+    padding: 12px;
+  }
+
+  .spacer {
+    display: none;
+  }
+
+  mat-toolbar button[mat-button] {
+    width: 100%;
+    margin: 4px 0;
+    height: 48px;
+    text-align: center;
+  }
+
+  mat-toolbar button[mat-button]:last-child {
+    margin-top: 12px;
+    margin-left: 0;
+  }
+}

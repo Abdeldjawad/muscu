@@ -1,0 +1,170 @@
+/* ✅ Reset complet de la page pour supprimer bordures et scroll */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Empêche le scroll */
+  height: 100%;
+  width: 100%;
+}
+
+/* ✅ Mise en page responsive, fullscreen avec image */
+.inscription-container {
+  position: fixed; /* Fixe la div pour éviter tout décalage */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), 
+              url('https://m.media-amazon.com/images/I/616DqNfFMLL._AC_UF1000,1000_QL80_.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* ✅ Formulaire centré */
+form {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 400px; /* ✅ Taille max */
+  text-align: center;
+  animation: slideIn 0.5s ease-in-out;
+  box-sizing: border-box;
+}
+
+/* ✅ Titre */
+h2 {
+  color: black; /* ✅ Titre en noir */
+  margin-bottom: 20px;
+}
+
+/* ✅ Champs de saisie */
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+/* ✅ Labels */
+label {
+  font-weight: bold;
+  color: black; /* ✅ Labels en noir */
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* ✅ Inputs */
+input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+  transform: scale(1.05);
+  border: 2px solid #ff7eb3;
+}
+
+/* ✅ Boutons */
+button {
+  padding: 12px;
+  background-color: #ff7eb3;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #ff4a92;
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* ✅ Messages */
+.message {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.message.success {
+  color: green;
+}
+
+.message.error {
+  color: red;
+}
+
+/* ✅ Texte "Déjà un compte ?" en noir */
+p {
+  color: black; /* ✅ Texte en noir */
+  margin-top: 15px;
+}
+
+/* ✅ Lien bouton */
+button.link {
+  background: none;
+  border: none;
+  color: #ff7eb3;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+button.link:hover {
+  color: #ff4a92;
+}
+
+/* ✅ Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ✅ Responsive pour petits écrans */
+@media (max-width: 500px) {
+  form {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

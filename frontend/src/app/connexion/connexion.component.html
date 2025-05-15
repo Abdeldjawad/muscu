@@ -1,0 +1,25 @@
+<div class="connexion-container">
+  <form [formGroup]="connexionForm" (ngSubmit)="onSubmit()">
+      <h2 style="color: white; text-align: center;">Connexion</h2>
+
+      <div>
+          <label for="email">Adresse Email :</label>
+          <input type="email" id="email" formControlName="email" placeholder="Entrez votre email">
+          <div *ngIf="connexionForm.controls['email'].invalid && connexionForm.controls['email'].touched" style="color: red;">
+              ❌ Un email valide est requis.
+          </div>
+      </div>
+
+      <div>
+          <label for="password"> Mot de passe :</label>
+          <input type="password" id="password" formControlName="password" placeholder="Entrez votre mot de passe">
+          <div *ngIf="connexionForm.controls['password'].invalid && connexionForm.controls['password'].touched" style="color: red;">
+              ❌ Le mot de passe doit contenir au moins 6 caractères.
+          </div>
+      </div>
+
+      <button type="submit" [disabled]="connexionForm.invalid">✅ Se connecter</button>
+
+      <p>Pas encore inscrit ? <button class="link" type="button" (click)="goToInscription()">S'inscrire</button></p>
+  </form>
+</div>
